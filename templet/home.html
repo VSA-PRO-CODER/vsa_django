@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+ {% block context %}
+ <style>
+     body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    } 
+
+    .continar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f2f2f2;
+    }
+    
+    .continar div {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .continar a {
+        display: block;
+        padding: 20px 40px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 4px;
+        background-color: #4070f4;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+    }
+    
+    .continar a:hover {
+        background-color: #000;
+    }
+    .else-h {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f2f2f2;
+    }
+
+    .else-h h5 {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 36px; /* Increased font size to 36px */
+        color: #FF0000; /* Red color for warning */
+        font-style: italic; /* Adding font style as italic */
+    }
+       
+ </style>
+ {% if request.user.is_authenticated %}
+ <div class="continar">
+     <div>
+        <a href="{% url 'users' %}"> Users </a>
+    </div>
+    <div>
+        <a href="{% url 'Ureg' %}"> Regster User  </a>
+    </div>
+    <div>
+        <a href="{% url 'salary' %}"> salary update </a>
+    </div>
+    <div>
+        <a href="{% url 'feed' %}">  recent data </a>
+    </div>
+    
+</div>
+{% else %}
+<div class="else-h">
+    <h5> please login ! </h5>
+</div>
+{% endif %}
+{% endblock %}

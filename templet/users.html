@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f1f1f1;
+            }
+            .search-bar {
+                display: flex;
+                align-items: center;
+                max-width: 300px;
+                background-color: #333;
+                border-radius: 5px;
+                padding: 5px;
+                margin: 20px auto;
+            }
+
+            .search-bar input[type="text"] {
+                flex: 1;
+                border: none;
+                outline: none;
+                padding: 10px;
+                background-color: #333;
+                color: #fff;
+                border-radius: 5px 0 0 5px;
+            }
+
+            .search-bar button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+            }
+
+            h5 {
+                font-size: 16px;
+                color: #333;
+                margin-bottom: 5px;
+            }
+    
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            
+            .profile {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            
+            .avatar {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+            }
+            
+            .username {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            
+            .details {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .details li {
+                margin-bottom: 10px;
+            }
+            .details li strong {
+                font-weight: bold;
+                margin-right: 10px;
+            }
+            .details li a {
+                text-decoration: none;
+                color: #007bff;
+            }
+            .edit-button-container {
+                display: flex;
+                justify-content: center;
+                margin-top: 15px; /* Add some spacing between data and button */
+            }
+            .edit-button {
+                background-color: #28a745;
+                color: #fff;
+                border: none;
+                padding: 10px 20px; /* Increased button size */
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .del-button {
+                background-color: #28a745;
+                color: #fff;
+                border: none;
+                margin-right: 40px ;
+                padding: 10px 20px; /* Increased button size */
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            /* Style the anchor tag on hover */
+            .edit-button:hover {
+                background-color: #218838;
+            }
+            .del-button:hover {
+                background-color: #218838;
+            }
+        </style>
+    </head>
+    <body>
+        {% block context %}
+        <form method="GET" action="{% url 'users' %}">
+            <div class="search-bar">
+                <input type="text" name="q" placeholder="Search topic.." />
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        {% for data in Data %}
+        <div class="container">
+            <div class="profile">
+                <img class="avatar" src="{{data.img.url}}" alt="{{data.name}}">
+                <h1 class="username">{{ data.name}}</h1>
+                <ul class="details">
+                    <li><strong>ID:</strong>{{data.ID}}</li>
+                    <li><strong>Email:</strong>{{data.email}}</li>
+                    <li><strong>Location:</strong></li>
+                    <li id="address">{{data.address}}</li>
+                    <li><strong>phone:</strong>{{data.phone}}</li>
+                </ul>
+                <div class="edit-button-container">
+                    <a href="{% url 'Update' data.ID %}" class="del-button">Edit</a>
+                    <a href="{% url 'del' data.ID %}" class="edit-button">Delete</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,96 @@
+{% extends 'main.html' %}
+{% block context%}
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    }
+
+    .contact-section {
+        background-color: #f2f2f2;
+        padding: 50px 0;
+    }
+    
+    .contact-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    
+    p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    form input,
+    form textarea {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    form button {
+        background-color: #4070f4;
+        color: #fff;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    form button:hover {
+        background-color: #000;
+    }
+    
+    .social-links {
+        margin-top: 20px;
+    }
+    
+    .social-links a {
+        display: inline-block;
+        margin-right: 10px;
+        text-decoration: none;
+        color: #4070f4;
+        border-bottom: 1px solid #4070f4;
+        padding-bottom: 2px;
+    }
+    
+    .social-links a:hover {
+        color: #000;
+        border-bottom: 1px solid #000;
+    }
+</style>
+<section class="contact-section">
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>Have a question or want to get in touch? Fill out the form below.</p>
+        <form action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="msg" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="social-links">
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="https://instagram.com/antonymous_vsa?igshid=ZDc4ODBmNjlmNQ==" target="_blank">Instagram</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

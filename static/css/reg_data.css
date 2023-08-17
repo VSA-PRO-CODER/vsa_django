@@ -1,0 +1,88 @@
+/* cool_styles.css */
+
+/* Center card container styles */
+body{
+    background-color: #f0f0f0;
+}
+.center-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    height: 100vh;
+}
+
+/* Background card styles */
+.signup-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px; /* Set the maximum width of the card */
+    width: 100%;
+}
+
+/* Form header styles */
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Input group styles */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-weight: bold;
+    display: block; /* Display the label as block to position it above the input */
+}
+
+/* Input field styles */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Address input styles */
+input[type="text"][name="address"] {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Upload profile picture styles */
+input[type="file"]::-webkit-file-upload-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #0056b3;
+}
+
+/* Submit button styles */
+.btn-primary {
+    display: block;
+    margin: 0 auto;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}

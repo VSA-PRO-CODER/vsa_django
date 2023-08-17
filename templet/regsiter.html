@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reg_data.css' %}">
+</head>
+<body>
+    <div class="center-card"> <!-- Adding the center card container -->
+        <section id="registration-page">
+            <form class="signup-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- FORM HEADER -->
+                <div class="form-header">
+                    <h1>Create Account</h1>
+                </div>
+                <!-- FORM BODY -->
+                <div class="form-body">
+                    <!-- First name -->
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="{{ form.name.id_for_label }}">Name</label>
+                            {{ form.name }}
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="{{ form.email.id_for_label }}">Email</label>
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <!-- Phone -->
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="{{ form.phone.id_for_label }}">Number</label>
+                            {{ form.phone }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="{{ form.address.id_for_label }}">Address</label>
+                            {{ form.address }}
+                        </div>
+                    </div>
+
+                    <!-- Upload Profile Picture -->
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="{{ form.img.id_for_label }}">Upload Profile Picture</label>
+                            {{ form.img }}
+                        </div>
+                    </div>
+                </div>
+                <!-- FORM FOOTER -->
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

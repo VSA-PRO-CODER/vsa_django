@@ -1,0 +1,44 @@
+{% block context %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .popup-container {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        max-width: 400px;
+        text-align: center;
+    }
+
+        .popup-content {
+            margin-bottom: 20px;
+        }
+        .edit-button {
+                background-color: #28a745;
+                color: #fff;
+                border: none;
+                padding: 10px 20px; /* Increased button size */
+                border-radius: 5px;
+                cursor: pointer;
+            }
+    </style>
+<div class="popup-container" id="popup">
+    <div class="popup-content">
+        <h2>WARING!</h2>
+    </div>
+    <div class="edit-button-container">
+        <a href="{% url 'del' data.ID %}" class="edit-button">Delete</a>
+        <a href="{% url 'profile' data.ID %}" class="edit-button">Close</a>
+    </div>
+</div>
+{% endblock %}

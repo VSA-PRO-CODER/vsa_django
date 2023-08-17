@@ -1,0 +1,73 @@
+{% load static %}
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.top-navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.logo a{
+    color: #fff;
+    font-size: 26px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+.logo a:hover{
+    color: #fff;
+    opacity: 0.8;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.nav-links li a:hover {
+    color: #fff;
+    opacity: 0.8;
+}
+
+</style>
+<nav class="top-navbar">
+    <div class="logo">
+        <!--<img src="{% static 'images/logov.png' %}" width="80px" height="50px" id=logo alt="Logo image" style="margin-left: 10px;" /> -->
+        <a href="{% url 'home' %}"> V S A</a>
+    </div>
+    <ul class="nav-links">
+        {% if  request.user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{%url 'Login'%}">Login</a></li>
+        {% endif %}
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact'%}">Contact</a></li>
+    </ul>
+</nav>

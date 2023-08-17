@@ -1,0 +1,57 @@
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        color: black; /* Blue color for the heading */
+        font-family: Arial, sans-serif;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2; /* Light gray background for table header */
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2; /* Alternate row background color */
+    }
+
+    li {
+        margin-bottom: 20px;
+    }
+</style>
+<h1> Recent Data </h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Date</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.ID }}</td>
+            <td><a href="{% url 'profile' item.ID %}">{{ item.name }}</a></td>
+            <td>{{ item.salary }}</td>
+            <td>{{ item.salary_updated_date }}</td>
+            <td><a href="{% url 'dels' item.ID%}">DEL</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

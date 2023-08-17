@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>vsa web </title>
+    </head>
+    <body>
+        {% include 'logo.html' %}
+        <?php
+            echo date('Y-m-d H:i:s');
+        ?>
+        {% block context %}
+        
+        {% endblock %}
+    </body>
+</html>
